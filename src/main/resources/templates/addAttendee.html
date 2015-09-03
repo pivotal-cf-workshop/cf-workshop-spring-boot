@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>EXAMPLE application for PCF</title>
+<link rel="stylesheet" href="css/foundation.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<nav class="top-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1>
+					<a href="./">Pivotal CF</a>
+				</h1>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h3>Add Attendee</h3>
+			<hr />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input">
+			<form action="addAttendee" method="post">
+				First Name: <input type="text" id="firstNamefirstName" name="firstName"/>
+				Last Name:<input type="text" id="lastName" name="lastName"/> 
+				Email Address:<input type="text" id="emailAddress" name="emailAddress"/> 
+				<input type="submit" class="medium button" value="Add"/> 
+				<a href="attendees" class="medium button">Cancel</a>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+
+</html>

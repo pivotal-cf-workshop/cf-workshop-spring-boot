@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>EXAMPLE application for PCF</title>
+<link rel="stylesheet" href="css/foundation.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<nav class="top-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1>
+					<a href="./">Pivotal CF</a>
+				</h1>
+			</li>
+		</ul>
+		<section class="top-bar-section">
+			<ul class="right">
+				<li><a href="./">Home</a></li>
+				<li><a href="attendees">Attendees</a></li>
+			</ul>
+		</section>
+	</nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+          <p th:text="'The instance index is ' + ${instanceIndex}"/>
+	    </div>
+        <hr/>
+      </div>
+    </div>
+
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h3>All Attendees</h3>
+			<hr />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<table>
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip Code</th>
+						<th>Phone</th>
+						<th>Email Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="attendee : ${attendees}">
+						<td th:text="${attendee.firstName}"/>
+						<td th:text="${attendee.lastName}"/>
+						<td th:text="${attendee.address}"/>
+						<td th:text="${attendee.city}"/>
+						<td th:text="${attendee.state}"/>
+						<td th:text="${attendee.zipCode}"/>
+						<td th:text="${attendee.phoneNumber}"/>
+						<td th:text="${attendee.emailAddress}"/>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<!-- This simply refreshes the page to demonstrate changed (or unchanged) ports -->
+			<a href="addAttendee" class="medium button">Add  Attendee</a>
+
+		</div>
+	</div>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <!-- This simply refreshes the page to demonstrate changed (or unchanged) ports -->
+        <a href="attendees"
+				class="medium button">Refresh</a>
+        
+      </div>
+    </div>
+
+
+    </body>
+
+</html>

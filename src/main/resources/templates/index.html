@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> EXAMPLE application for PCF</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+  <body>
+
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="./">EXAMPLE application for PCF</a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="./">Home</a></li>
+          <li><a href="attendees">Attendees</a></li>
+          <li><a href="env">Show Environment</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h3 style="color:#01786E">Demo Application Pivotal CF</h3>
+        <hr/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+          <h4>Hello Pivotal CF</h4><br/>
+          <p>The instance index is <b th:text="${instanceIndex}"></b></p>
+          
+	    </div>
+        <hr/>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <!-- This simply refreshes the page to demonstrate changed (or unchanged) ports -->
+        <a href="javascript:window.location.reload();" class="medium button">Refresh</a>
+        <!-- This link should be changed to the application's kill action -->
+        <a href="kill" class="medium alert button">Kill</a>
+      </div>
+    </div>
+
+    </body>
+    
+</html>
