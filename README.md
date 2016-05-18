@@ -23,7 +23,7 @@ Building, Packaging, and Deploying
 
     git clone https://github.com/pivotal-cf-workshop/cf-workshop-spring-boot
 
-    mvn clean package
+    ./mvnw clean package
 
 ###To run the application
 
