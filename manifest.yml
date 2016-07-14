@@ -1,0 +1,6 @@
+applications:
+- name: APP
+  memory: 512M
+  instances: 1
+  host: workshop-${random-word}
+  path: ./target/cf-workshop-spring-boot-0.0.1-SNAPSHOT.jar

@@ -41,6 +41,7 @@ public class CloudFoundryWorkshopController {
 		}
 
 		addAppInstanceIndex(model);
+		getCFServices(model);
 
 		return "index";
 	}
@@ -87,6 +88,9 @@ public class CloudFoundryWorkshopController {
 		String serverTime = dateFormat.format(date);
 		model.addAttribute("serverTime", serverTime);
 
+		String extIpPort = System.getenv("CF_INSTANCE_ADDR");
+		model.addAttribute("extIpPort", extIpPort);
+		
 		String port = System.getenv("PORT");
 		model.addAttribute("port", port);
 
@@ -102,6 +106,12 @@ public class CloudFoundryWorkshopController {
 
 		logger.info("Current date and time = [{}], port = [{}].", serverTime, port);
 
+		getCFServices(model);
+
+		return "env";
+	}
+
+	private void getCFServices(Model model) {
 		if (cloudFactory != null) {
 
 			Cloud cloud = cloudFactory.getCloud();
@@ -133,8 +143,6 @@ public class CloudFoundryWorkshopController {
 		} else {
 			logger.info("no cloudFactory");
 		}
-
-		return "env";
 	}
 
 	/**

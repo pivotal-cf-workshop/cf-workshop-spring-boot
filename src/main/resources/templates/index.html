@@ -34,7 +34,17 @@
       	<div class="panel">
           <h4>Hello Pivotal CF</h4><br/>
           <p>The instance index is <b th:text="${instanceIndex}"></b></p>
-          
+          <div th:unless="${#lists.isEmpty(serviceInfos)}">
+          	<p>The bound services are :<br /></p>
+          	<p>
+          		<ul>
+          			<li th:each="si : ${serviceInfos}" th:text="${si}"></li>
+          		</ul>
+          	</p>
+         </div>
+         <div th:if="${#lists.isEmpty(serviceInfos)}">
+          	<p>The are no bound services<br /></p>
+         </div>
 	    </div>
         <hr/>
       </div>
