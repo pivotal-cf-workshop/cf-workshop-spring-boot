@@ -1,6 +1,6 @@
 applications:
-- name: APP
+- name: boot-app-derek
   memory: 512M
   instances: 1
-  host: workshop-${random-word}
+  host: boot-app-${random-word}
   path: ./target/cf-workshop-spring-boot-0.0.1-SNAPSHOT.jar
