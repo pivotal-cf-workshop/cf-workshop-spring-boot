@@ -80,7 +80,7 @@ public class CloudFoundryWorkshopController {
 	 * @return The path to the view.
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/env", method = RequestMethod.GET)
+	@RequestMapping(value = "/environment", method = RequestMethod.GET)
 	public String env(Model model) throws Exception {
 
 		Date date = new Date();
@@ -108,7 +108,7 @@ public class CloudFoundryWorkshopController {
 
 		getCFServices(model);
 
-		return "env";
+		return "environment";
 	}
 
 	private void getCFServices(Model model) {
