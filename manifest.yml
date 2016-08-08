@@ -1,6 +1,6 @@
 applications:
 - name: boot-app-derek
-  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git#v3.7
   memory: 512M
   instances: 1
   host: boot-app-${random-word}
