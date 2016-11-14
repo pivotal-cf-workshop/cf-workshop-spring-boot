@@ -1,5 +1,8 @@
 /target/
 
+#concourse
+credentials.yml
+
 #Eclipse
 .metadata
 bin/
