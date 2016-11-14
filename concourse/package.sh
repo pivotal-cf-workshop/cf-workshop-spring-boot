@@ -2,6 +2,6 @@
 
 set -xe
 
-cd git-assets
+cd git-repo
 mvn -DskipTests package
 cp target/cf-workshop-spring-boot-*.jar artifacts/boot-app.jar
