@@ -1,0 +1,15 @@
+resources:
+- name: git-repo
+  type: git
+  source:
+    uri: https://github.com/dbeauregard/cf-workshop-spring-boot
+    branch: concourse
+
+jobs:
+  - name: maven-package
+    plan:
+    - get: git-repo
+      trigger: true
+    - task: maven-package
+      privileged: true
+      file: git-repo/pipeline/maven-package.yml
