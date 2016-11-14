@@ -12,4 +12,4 @@ jobs:
       trigger: true
     - task: maven-package
       privileged: true
-      file: git-repo/pipeline/maven-package.yml
+      file: git-repo/concourse/maven-package.yml
