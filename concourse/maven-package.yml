@@ -13,5 +13,4 @@ outputs:
 - name: artifacts
 
 run:
-  path: mvn
-  args: ["-f", "git-repo/pom.xml", "-DskipTests=true", "package"]
+  path: git-assets/concourse/package.sh

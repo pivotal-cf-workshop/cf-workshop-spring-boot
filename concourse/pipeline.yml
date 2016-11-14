@@ -24,4 +24,4 @@ jobs:
   - put: cloudfoundry
     params:
       - manifest: git-repo/manifest.yml
-      - path: artifacts/spring-boot.jar
+      - path: artifacts/boot-app.jar
