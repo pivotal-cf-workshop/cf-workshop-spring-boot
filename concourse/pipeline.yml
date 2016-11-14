@@ -20,9 +20,8 @@ jobs:
   - get: git-repo
     trigger: true
   - task: maven-package
-    privileged: true
     file: git-repo/concourse/maven-package.yml
   - put: cloudfoundry
     params:
       - manifest: git-repo/manifest.yml
-      - path: git-repo/target/cf-workshop-spring-boot-0.0.2-SNAPSHOT.jar
+      - path: artifacts/spring-boot.jar
