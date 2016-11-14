@@ -13,4 +13,4 @@ outputs:
 - name: artifacts
 
 run:
-  path: git-assets/concourse/package.sh
+  path: git-repo/concourse/package.sh
