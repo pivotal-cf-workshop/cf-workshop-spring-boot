@@ -25,3 +25,4 @@ jobs:
   - put: cloudfoundry
     params:
       - manifest: git-repo/manifest.yml
+      - path: git-repo/target/cf-workshop-spring-boot-*.jar
