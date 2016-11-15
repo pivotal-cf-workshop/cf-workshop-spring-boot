@@ -8,9 +8,12 @@ image_resource:
 
 inputs:
   - name: git-repo
+  - name: version
 
 outputs:
 - name: artifacts
 
 run:
-  path: git-repo/concourse/package.sh
+  #path: git-repo/concourse/package.sh
+  path: git-repo/concourse/package2.sh
+  args: [version/number]

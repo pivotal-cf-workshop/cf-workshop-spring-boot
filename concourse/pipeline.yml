@@ -1,10 +1,39 @@
 resources:
+
 - name: git-repo
   type: git
   source:
     uri: https://github.com/dbeauregard/cf-workshop-spring-boot
     branch: concourse
-- name: cloudfoundry
+    
+- name: my-product-rc
+  type: s3
+  source:
+    bucket: boot-app-artifact-repository
+    regexp: boot-app-(.*).jar
+    access_key_id: {{S3-ACCESS-KEY}}
+    secret_access_key: {{S3-SECRET}}
+
+- name: version
+  type: semver
+  source:
+    bucket: boot-app-artifact-repository
+    key: current-version
+    access_key_id: {{S3-ACCESS-KEY}}
+    secret_access_key: {{S3-SECRET}}
+    initial_version: 1.0.0
+
+- name: cloudfoundry-staging
+  type: cf
+  source:
+    api: {{cf-api}}
+    skip_cert_check: true
+    organization: {{cf-organization}}
+    username: {{cf-username}}
+    password: {{cf-password}}
+    space: {{cf-space}}
+    
+- name: cloudfoundry-prod
   type: cf
   source:
     api: {{cf-api}}
@@ -15,13 +44,36 @@ resources:
     space: {{cf-space}}
 
 jobs:
-- name: maven-package
+
+- name: package
+  serial_groups: [version]
   plan:
   - get: git-repo
     trigger: true
+  - get: version
   - task: maven-package
     file: git-repo/concourse/maven-package.yml
-  - put: cloudfoundry
+  - put: my-product-rc
+    params: 
+      file: artifacts/boot-app-*.jar
+
+- name: staging
+  plan:
+  - get: my-product-rc
+    trigger: true
+    passed:
+      - package
+  - put: cloudfoundry-staging
+    params:
+      - manifest: git-repo/manifest.yml
+      - path: artifacts/boot-app.jar
+      
+- name: production
+  plan:
+  - get: my-product-rc
+    passed:
+      - staging
+  - put: cloudfoundry-prod
     params:
       - manifest: git-repo/manifest.yml
       - path: artifacts/boot-app.jar
