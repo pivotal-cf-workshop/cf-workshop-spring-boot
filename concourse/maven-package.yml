@@ -21,3 +21,4 @@ outputs:
 run:
   path: cat
   args: [version/number]
+  params: {version: [version/number]}
