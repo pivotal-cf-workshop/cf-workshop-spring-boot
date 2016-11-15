@@ -10,13 +10,11 @@ inputs:
   - name: git-repo
   - name: version
   
-parameters:
-  - vn: version/number
-
 outputs:
 - name: artifacts
   
 run:
   path: git-repo/concourse/package2.sh
-  params: 
-    version: version/number
+
+params: 
+  version: version/number
