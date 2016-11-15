@@ -1,6 +1,4 @@
-#!/bin/bash
-
-set -xe
+#!/bin/bash -e
 
 cd git-repo
 echo $1
