@@ -14,7 +14,7 @@ outputs:
 - name: artifacts
   
 run:
-  path: git-repo/concourse/package2.sh
+  #path: git-repo/concourse/package2.sh
   path: env 
 
 params: 
