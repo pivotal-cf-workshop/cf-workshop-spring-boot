@@ -13,7 +13,11 @@ inputs:
 outputs:
 - name: artifacts
 
-run:
+#run:
   #path: git-repo/concourse/package.sh
-  path: git-repo/concourse/package2.sh
+#  path: git-repo/concourse/package2.sh
+#  args: [resource-version/number]
+  
+run:
+  path: cat
   args: [resource-version/number]
