@@ -20,4 +20,4 @@ outputs:
   
 run:
   path: cat
-  args: [resource-version/number]
+  args: [version/number]
