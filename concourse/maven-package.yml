@@ -16,4 +16,4 @@ outputs:
 run:
   #path: git-repo/concourse/package.sh
   path: git-repo/concourse/package2.sh
-  args: [version/number]
+  args: [resource-version/number]
