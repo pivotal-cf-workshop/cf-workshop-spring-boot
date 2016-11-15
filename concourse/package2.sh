@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-cat <&0
+echo $0
