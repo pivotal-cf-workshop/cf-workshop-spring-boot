@@ -15,7 +15,5 @@ outputs:
   
 run:
   #path: git-repo/concourse/package2.sh
-  path: env 
-
-params: 
-  version: version/number
+  path: cat 
+  args: [version/number]
