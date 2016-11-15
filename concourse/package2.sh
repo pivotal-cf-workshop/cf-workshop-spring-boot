@@ -4,4 +4,4 @@ set -xe
 
 cd git-repo
 echo $1
-echo $ENV
+echo $2
