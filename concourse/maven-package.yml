@@ -18,4 +18,4 @@ run:
   args: [version/number]
   
 params:
-  version: version/number
+  version: {{version/number}}
