@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-less <&0
+cat <&0
