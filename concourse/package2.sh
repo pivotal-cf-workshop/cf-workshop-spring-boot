@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-echo $0
+echo $1
