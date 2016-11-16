@@ -62,6 +62,7 @@ jobs:
   - get: git-repo
     trigger: true
   - get: my-product-rc
+    trigger: true
     passed:
       - unit
   - put: cloudfoundry-staging
