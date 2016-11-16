@@ -14,5 +14,5 @@ outputs:
 - name: artifacts
   
 run:
-  path: ./git-repo/concourse/package2.sh  
+  path: ./git-repo/concourse/package.sh  
 params: {version: version/number}
