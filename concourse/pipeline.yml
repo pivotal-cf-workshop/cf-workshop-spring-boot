@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: https://github.com/dbeauregard/cf-workshop-spring-boot
-    branch: concourse
+    branch: master
     
 - name: artifacts
   type: s3
