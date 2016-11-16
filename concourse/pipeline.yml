@@ -58,7 +58,7 @@ jobs:
     params: 
       file: artifacts/boot-app-*.jar
   - put: version
-    params: {file: version/number}
+    params: {file: version/number, bump: minor, pre: rc}
 
 - name: staging
   plan:
