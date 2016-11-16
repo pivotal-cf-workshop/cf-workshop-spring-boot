@@ -45,7 +45,7 @@ resources:
 
 jobs:
 
-- name: package
+- name: unit
   serial_groups: [version]
   plan:
   - get: git-repo
@@ -53,9 +53,9 @@ jobs:
   - get: version
   - task: maven-package
     file: git-repo/concourse/maven-package.yml
-#  - put: my-product-rc
-#    params: 
-#      file: artifacts/boot-app-*.jar
+  - put: my-product-rc
+    params: 
+      file: artifacts/boot-app-*.jar
 
 - name: staging
   plan:
