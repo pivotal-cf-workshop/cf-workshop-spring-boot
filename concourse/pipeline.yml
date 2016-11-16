@@ -59,21 +59,23 @@ jobs:
 
 - name: staging
   plan:
-  - get: my-product-rc
+  - get: git-repo
     trigger: true
+  - get: my-product-rc
     passed:
-      - package
+      - unit
   - put: cloudfoundry-staging
     params:
       - manifest: git-repo/manifest.yml
-      - path: artifacts/boot-app.jar
+      - path: my-product-rc/boot-app-*.jar
       
 - name: production
   plan:
+  - get: git-repo
   - get: my-product-rc
     passed:
       - staging
   - put: cloudfoundry-prod
     params:
       - manifest: git-repo/manifest.yml
-      - path: artifacts/boot-app.jar
+      - path: my-product-rc/boot-app-*.jar
