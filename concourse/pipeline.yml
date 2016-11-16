@@ -87,3 +87,4 @@ jobs:
     params:
       - manifest: git-repo/manifest.yml
       - path: artifacts/boot-app-*.jar
+      - current_app_name: boot-app-derek-prod
