@@ -6,5 +6,5 @@ set -xe
 version=`cat $version`
 
 cd git-repo
-mvn -DskipTests package
+mvn package
 cp target/cf-workshop-spring-boot-*.jar ../artifacts/boot-app-$version.jar
