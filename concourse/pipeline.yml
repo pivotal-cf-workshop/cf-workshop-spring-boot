@@ -6,7 +6,7 @@ resources:
     uri: https://github.com/dbeauregard/cf-workshop-spring-boot
     branch: concourse
     
-- name: my-product-rc
+- name: artifacts
   type: s3
   source:
     bucket: boot-app-artifact-repository
@@ -45,38 +45,43 @@ resources:
 
 jobs:
 
-- name: unit
+- name: unit-pkg
   serial_groups: [version]
   plan:
   - get: git-repo
     trigger: true
   - get: version
+    params: {bump: final}
   - task: maven-package
     file: git-repo/concourse/maven-package.yml
-  - put: my-product-rc
+  - put: artifacts
     params: 
       file: artifacts/boot-app-*.jar
+  - put: version
+    params: {file: version/number}
 
 - name: staging
   plan:
-  - get: git-repo
-    trigger: true
-  - get: my-product-rc
-    trigger: true
+  - get: artifacts
     passed:
-      - unit
+      - unit-pkg
+    trigger: true
+  - get: git-repo
+    passed:
+      - unit-pkg
+    trigger: true
   - put: cloudfoundry-staging
     params:
       - manifest: git-repo/manifest.yml
-      - path: my-product-rc/boot-app-*.jar
+      - path: artifacts/boot-app-*.jar
       
 - name: production
   plan:
   - get: git-repo
-  - get: my-product-rc
+  - get: artifacts
     passed:
       - staging
   - put: cloudfoundry-prod
     params:
       - manifest: git-repo/manifest.yml
-      - path: my-product-rc/boot-app-*.jar
+      - path: artifacts/boot-app-*.jar
