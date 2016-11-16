@@ -31,7 +31,7 @@ resources:
     organization: {{cf-organization}}
     username: {{cf-username}}
     password: {{cf-password}}
-    space: {{cf-space}}
+    space: {{cf-space-stage}}
     
 - name: cloudfoundry-prod
   type: cf
@@ -41,7 +41,7 @@ resources:
     organization: {{cf-organization}}
     username: {{cf-username}}
     password: {{cf-password}}
-    space: {{cf-space}}
+    space: {{cf-space-prod}}
 
 jobs:
 
