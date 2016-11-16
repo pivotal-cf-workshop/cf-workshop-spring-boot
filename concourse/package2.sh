@@ -3,5 +3,6 @@
 set -xe
 
 cat $version
-version = cat $version
+version = `cat $version`
+echo
 echo $version
