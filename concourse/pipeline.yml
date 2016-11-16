@@ -78,6 +78,8 @@ jobs:
 - name: production
   plan:
   - get: git-repo
+    passed:
+      - staging
   - get: artifacts
     passed:
       - staging
