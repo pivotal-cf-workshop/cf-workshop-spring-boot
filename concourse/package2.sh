@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
-echo $@
+set -xe
 
-env
+cat $version
+version = cat $version
+echo $version
