@@ -2,6 +2,7 @@
 
 #concourse
 credentials.yml
+credentials.yml.back*
 
 #Eclipse
 .metadata

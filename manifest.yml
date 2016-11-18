@@ -1,6 +1,6 @@
 applications:
 - name: boot-app-derek
-  buildpack: java_buildpack
+#  buildpack: java_buildpack
   memory: 512M
   instances: 1
 #  host: boot-app-${random-word}
