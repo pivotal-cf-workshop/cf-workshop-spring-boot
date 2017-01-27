@@ -3,5 +3,5 @@ applications:
 #  buildpack: java_buildpack
   memory: 512M
   instances: 1
-#  host: boot-app-${random-word}
-  path: ./target/cf-workshop-spring-boot-0.0.2-SNAPSHOT.jar
+  host: boot-app-${random-word}
+  path: ./target/cf-workshop-spring-boot-0.0.3-SNAPSHOT.jar
