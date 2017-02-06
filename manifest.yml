@@ -3,5 +3,5 @@ applications:
 #  buildpack: https://github.com/cloudfoundry/java-buildpack.git#v3.12
   memory: 512M
   instances: 1
-  host: boot-app-${random-word}
+#  host: boot-app-${random-word}
   path: ./target/cf-workshop-spring-boot-0.0.3-SNAPSHOT.jar
