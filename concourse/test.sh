@@ -1,5 +1,5 @@
 #!/bin/bash -e
-
+echo "v2"
 set -xe
 
 cat $version

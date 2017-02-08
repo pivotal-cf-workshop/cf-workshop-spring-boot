@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: https://github.com/dbeauregard/cf-workshop-spring-boot
-    branch: master
+    branch: devops-days
     
 - name: artifacts
   type: s3
