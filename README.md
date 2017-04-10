@@ -43,4 +43,5 @@ There is a Dockerfile in the top level directory.  You can build your own Docker
 
 There is a Concourse pipeline in the concourse directory.  It will watch GitHub for pushes, build the project (Maven) and run the unit tests, version the jar, save the jar in S3, bump the version # and push the app to a PCF staging env.  There is then a manual step/click to do a blue/green deployment (cf push) to 'production'.
  1. In the concourse directory copy credentials.yml.sample to credentials.yml (same directory) and fill in your credentials for PCF and Amazon S3.
- 2. From the concourse directory run the following command (after you have targeted your concourse deployment with fly): fly -t lite set-pipeline -p boot-app -c pipeline.yml -l credentials.yml
+ 2. Target Concourse with Fly:  fly -t lite login -c http://192.168.100.4:8080
+ 3. From the concourse directory run the following command (after you have targeted your concourse deployment with fly): fly -t lite set-pipeline -p boot-app -c pipeline.yml -l credentials.yml
